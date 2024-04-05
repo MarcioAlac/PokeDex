@@ -45,7 +45,6 @@ body
 .poke_search
 {
     position: absolute;
-    background-color: red;
     bottom: 31%;
     left: 21.9%;
     width: 55%;
@@ -55,6 +54,54 @@ body
 {
     width: 100%;
     padding: 3%;
+    outline: none;
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #902040;
+    font-size: clamp(10%, 100%, 120%);
+    box-shadow: -3px 4px 0 rgb(150, 136, 136), -5px 6px 0 #333;
+    transition: all 0.05s ease-in-out;
+}
+
+.pokemon_input:hover
+{
+    box-shadow: none;
+    width: 98%;
+}
+
+.button-gp
+{
+    position: absolute;
+    width: 55%;
+    left: 48.5%;
+    bottom: 8%;
+    transform: translateX(-46.6%);
+    box-shadow: -6px 4px 10px rgb(52, 5, 20);
+}
+
+.button
+{
+    width: 100%;
+    padding: 3%;
+    outline: none;
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #fb3838;
+    background-color: rgb(91, 189, 211);
+    font-size: clamp(10%, 100%, 120%);
+    box-shadow: -3px 4px 0 rgb(150, 136, 136), -5px 6px 0 #333;
+    transition: all 0.05s ease-in-out;
+    margin-bottom: 2%;
+    transition: all ease-in 0.1s;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.button:active
+{
+    transform: scale(0.97);
 }
 
 .pokemon_img

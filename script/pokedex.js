@@ -7,6 +7,9 @@ class PokeDex
         this.requestForm()
     }
 
+    /**
+    *  @description {Return a right pokemon to pokedex} 
+    */
     requestForm()
     {
         let form = document.querySelector('.poke_search')
@@ -17,6 +20,7 @@ class PokeDex
             let new_url = this.url + pokemon
             console.log(new_url)
             this.getPoke(new_url)
+            document.querySelector('.pokemon_input').value = ''
         })
     }
     /**
