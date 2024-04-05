@@ -2,11 +2,33 @@ class PokeDex
 {    
     constructor()
     {
+        this.SELECTED_POKE = [1]
         console.log('ativado')
         this.url = "https://pokeapi.co/api/v2/pokemon/" 
         this.requestForm()
+        this.prev()
+        
     }
 
+    prev()
+    {
+        const BTN_PREV = document.querySelector('.btn-prev')
+    
+        BTN_PREV.addEventListener('click', () => {
+            
+            if (this.SELECTED_POKE.length > 0) {
+                let prev_pokemon = this.SELECTED_POKE.pop()
+                let new_url = this.url + prev_pokemon
+    
+                console.log(this.SELECTED_POKE, prev_pokemon)
+                this.getPoke(new_url)
+            } else {
+                console.log('Não há mais Pokémons para mostrar.')
+            }
+    
+        })
+    }
+    
     /**
     *  @description {Return a right pokemon to pokedex} 
     */
@@ -14,11 +36,12 @@ class PokeDex
     {
         let form = document.querySelector('.poke_search')
         form.addEventListener('submit', (e) => {
+
             console.log('ativado f2')
             e.preventDefault()
+
             let pokemon = document.querySelector('input[name=pokemon]').value
             let new_url = this.url + pokemon
-            console.log(new_url)
             this.getPoke(new_url)
             document.querySelector('.pokemon_input').value = ''
         })
@@ -45,9 +68,10 @@ class PokeDex
             html_img.src = pokemon_gif
             html_p_poke_name.textContent = pokemon_name
             html_p_poke_pos.textContent = pokemon_pos
-            
+
+            return this.SELECTED_POKE.push(pokemon_pos)
         })
-        .catch(erro => console.error('Critical erro: ' , erro))
+        // .catch(erro => console.error('Critical erro: ' , erro))
     }
 }
 
