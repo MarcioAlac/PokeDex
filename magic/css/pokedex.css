@@ -1,0 +1,56 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main
+{
+    display: inline-block;
+    position: relative;
+    margin-top: 5%;
+    padding: 10px;
+}
+
+body
+{
+    text-align: center;
+    min-height: 100vh;
+}
+
+.pokedex
+{
+    width: 100%;
+    max-width: 400px;
+    min-width: 266px;
+}
+
+.poke_content
+{
+    position: absolute;
+    font-weight: 600;
+    color: #aaa;
+    bottom: 41.5%;
+    right: 32%;
+}
+
+.poke_name
+{
+    color: rgb(112, 109, 104);
+    text-transform: capitalize;
+    font-size: clamp(80%, 130%, 140%);
+}
+
+.poke_search
+{
+    position: absolute;
+}
+
+.pokemon_img
+{
+    position: absolute;
+    left: 42%;
+    bottom: 52%;
+    width: 24%;
+}
