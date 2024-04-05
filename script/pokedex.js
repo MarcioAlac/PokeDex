@@ -1,13 +1,24 @@
 class PokeDex
 {    
-    constructor(pokemon)
+    constructor()
     {
         console.log('ativado')
-        this.pokemon = pokemon;
-        this.url = "https://pokeapi.co/api/v2/pokemon/" + pokemon
-        this.getPoke(this.url)
+        this.url = "https://pokeapi.co/api/v2/pokemon/" 
+        this.requestForm()
     }
 
+    requestForm()
+    {
+        let form = document.querySelector('.poke_search')
+        form.addEventListener('submit', (e) => {
+            console.log('ativado f2')
+            e.preventDefault()
+            let pokemon = document.querySelector('input[name=pokemon]').value
+            let new_url = this.url + pokemon
+            console.log(new_url)
+            this.getPoke(new_url)
+        })
+    }
     /**
     *  @return {Promise} 
     */
@@ -36,9 +47,4 @@ class PokeDex
     }
 }
 
-
-fetch('/poke-search?')
-.then(response => response.json())
-.then(data => console.log(data))
-let pokedex = new PokeDex(12)
-
+const pokemon = new PokeDex

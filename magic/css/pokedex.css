@@ -22,7 +22,7 @@ body
 .pokedex
 {
     width: 100%;
-    max-width: 400px;
+    max-width: 426px;
     min-width: 266px;
 }
 
@@ -45,6 +45,16 @@ body
 .poke_search
 {
     position: absolute;
+    background-color: red;
+    bottom: 31%;
+    left: 21.9%;
+    width: 55%;
+}
+
+.pokemon_input
+{
+    width: 100%;
+    padding: 3%;
 }
 
 .pokemon_img
