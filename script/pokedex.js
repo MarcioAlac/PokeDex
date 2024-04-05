@@ -8,7 +8,7 @@ class PokeDex
         this.init()
         
     }
-    
+
     init()
     {
         this.requestForm()
@@ -79,7 +79,7 @@ class PokeDex
             let pokemon_name = data.name
 
             // console.log(pokemon_name)
-            let pokemon_gif = '/magic/assets/pokemons/poke_' + pokemon_pos + '.gif'
+            let pokemon_gif = 'magic/assets/pokemons/poke_' + pokemon_pos + '.gif'
 
             html_img.src = pokemon_gif
             html_p_poke_name.textContent = pokemon_name
