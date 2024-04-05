@@ -2,30 +2,45 @@ class PokeDex
 {    
     constructor()
     {
-        this.SELECTED_POKE = [1]
+        this.SELECTED_POKE = 1
         console.log('ativado')
         this.url = "https://pokeapi.co/api/v2/pokemon/" 
-        this.requestForm()
-        this.prev()
+        this.init()
         
     }
+    
+    init()
+    {
+        this.requestForm()
+        this.prev()
+        this.next()
+    }
+
+    next()
+    {
+        const NEXT = document.querySelector('.btn-next')
+        NEXT.addEventListener('click', () => {
+
+            let prev_poke = this.SELECTED_POKE + 1
+            let new_url = this.url + prev_poke
+
+            return this.getPoke(new_url)
+
+    })
+    }
+    
 
     prev()
     {
         const BTN_PREV = document.querySelector('.btn-prev')
     
         BTN_PREV.addEventListener('click', () => {
-            
-            if (this.SELECTED_POKE.length > 0) {
-                let prev_pokemon = this.SELECTED_POKE.pop()
-                let new_url = this.url + prev_pokemon
-    
-                console.log(this.SELECTED_POKE, prev_pokemon)
-                this.getPoke(new_url)
-            } else {
-                console.log('Não há mais Pokémons para mostrar.')
-            }
-    
+
+                let prev_poke = this.SELECTED_POKE - 1
+                let new_url = this.url + prev_poke
+
+                return this.getPoke(new_url)
+
         })
     }
     
@@ -60,6 +75,7 @@ class PokeDex
             let html_p_poke_pos = document.querySelector('.poke_pos')
 
             let pokemon_pos = data.id
+            this.SELECTED_POKE = data.id
             let pokemon_name = data.name
 
             // console.log(pokemon_name)
@@ -69,7 +85,6 @@ class PokeDex
             html_p_poke_name.textContent = pokemon_name
             html_p_poke_pos.textContent = pokemon_pos
 
-            return this.SELECTED_POKE.push(pokemon_pos)
         })
         // .catch(erro => console.error('Critical erro: ' , erro))
     }
